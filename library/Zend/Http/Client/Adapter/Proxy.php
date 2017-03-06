@@ -305,7 +305,7 @@ class Zend_Http_Client_Adapter_Proxy extends Zend_Http_Client_Adapter_Socket
 
         $success = false;
         foreach($modes as $mode) {
-            $success = stream_socket_enable_crypto($this->socket, true, $mode);
+            $success = @stream_socket_enable_crypto($this->socket, true, $mode);
             if ($success) {
                 break;
             }
